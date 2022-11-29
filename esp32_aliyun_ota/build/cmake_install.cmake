@@ -1,8 +1,8 @@
-# Install script for directory: J:/ESP32_project/station1
+# Install script for directory: J:/Github/ESP32_OTA/esp32_aliyun_ota
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/station1")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/esp32_aliyun_ota")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("J:/ESP32_project/station1/build/esp-idf/cmake_install.cmake")
+  include("J:/Github/ESP32_OTA/esp32_aliyun_ota/build/esp-idf/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "J:/ESP32_project/station1/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "J:/Github/ESP32_OTA/esp32_aliyun_ota/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

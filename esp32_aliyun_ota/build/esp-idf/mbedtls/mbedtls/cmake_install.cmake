@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/station1")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/esp32_aliyun_ota")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,9 +39,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("J:/ESP32_project/station1/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
-  include("J:/ESP32_project/station1/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
-  include("J:/ESP32_project/station1/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("J:/Github/ESP32_OTA/esp32_aliyun_ota/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("J:/Github/ESP32_OTA/esp32_aliyun_ota/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
+  include("J:/Github/ESP32_OTA/esp32_aliyun_ota/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
 
 endif()
 

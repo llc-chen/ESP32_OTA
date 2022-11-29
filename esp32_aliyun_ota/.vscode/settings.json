@@ -1,4 +1,7 @@
 {
     "idf.adapterTargetName": "esp32",
-    "idf.portWin": "COM9"
+    "idf.portWin": "COM9",
+    "files.associations": {
+        "gpio.h": "c"
+    }
 }

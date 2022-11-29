@@ -1,4 +1,4 @@
-/* * Data converted from J:/ESP32_project/station1/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from J:/Github/ESP32_OTA/esp32_aliyun_ota/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

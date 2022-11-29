@@ -1,8 +1,8 @@
 {
     "project_name":       "bootloader",
     "project_path":       "J:/Espressif/frameworks/esp-idf-v4.4.3/components/bootloader/subproject",
-    "build_dir":          "J:/ESP32_project/station1/build/bootloader",
-    "config_file":        "J:/ESP32_project/station1/sdkconfig",
+    "build_dir":          "J:/Github/ESP32_OTA/esp32_aliyun_ota/build/bootloader",
+    "config_file":        "J:/Github/ESP32_OTA/esp32_aliyun_ota/sdkconfig",
     "config_defaults":    "",
     "app_elf":            "bootloader.elf",
     "app_bin":            "bootloader.bin",

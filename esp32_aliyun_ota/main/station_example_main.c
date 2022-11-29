@@ -421,20 +421,8 @@ static void echo_task(void *arg)
     }
 }
 
-
-
-void app_main(void)
-{
-    //Initialize NVS
-    esp_err_t ret = nvs_flash_init();
-    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
-      ESP_ERROR_CHECK(nvs_flash_erase());
-      ret = nvs_flash_init();
-    }
-    ESP_ERROR_CHECK(ret);
-    // GPIO OUTPUT
-
-    //zero-initialize the config structure.
+void gpio_init(){
+        //zero-initialize the config structure.
     gpio_config_t io_conf = {};
     //disable interrupt
     io_conf.intr_type = GPIO_INTR_DISABLE;
@@ -449,23 +437,68 @@ void app_main(void)
     //configure GPIO with the given settings
     gpio_config(&io_conf);
 
+}
 
+ void gpio_18_task(void *arg)
+{
+    while(1)
+ {
+    gpio_init();
     gpio_set_level(GPIO_OUTPUT_IO_0, 0);
+    printf("led on\n");
+    vTaskDelay(500/portTICK_PERIOD_MS);
+    gpio_set_level(GPIO_OUTPUT_IO_0, 1);
+    printf("led off\n");
+    vTaskDelay(500/portTICK_PERIOD_MS);
+ }
+
+}
+
+void app_main(void)
+{
+    //Initialize NVS
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+      ESP_ERROR_CHECK(nvs_flash_erase());
+      ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
+    // GPIO OUTPUT
+
+    // //zero-initialize the config structure.
+    // gpio_config_t io_conf = {};
+    // //disable interrupt
+    // io_conf.intr_type = GPIO_INTR_DISABLE;
+    // //set as output mode
+    // io_conf.mode = GPIO_MODE_OUTPUT;
+    // //bit mask of the pins that you want to set,e.g.GPIO18/19
+    // io_conf.pin_bit_mask = GPIO_OUTPUT_PIN_SEL;
+    // //disable pull-down mode
+    // io_conf.pull_down_en = GPIO_PULLDOWN_ENABLE;
+    // //disable pull-up mode
+    // io_conf.pull_up_en = 0 ;
+    // //configure GPIO with the given settings
+    // gpio_config(&io_conf);
+
+
+    //gpio_set_level(GPIO_OUTPUT_IO_0, 0);
     xTaskCreate(echo_task, "uart_echo_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
     ESP_LOGI(TAG, "ESP_WIFI_MODE_STA");
     wifi_init_sta();
    // ESP_ERROR_CHECK(example_connect());
     user_mqtt_app_start();
 
+    //gpio_18_task();
     HAL_SetProductKey("a1GCrhoFnT8");
     //HAL_SetProductSecret("eFha1yQgo1rf1234");
     HAL_SetDeviceName("test");
     HAL_SetDeviceSecret("dd6262578af8c6ab56152393980d86db");
+    xTaskCreate(gpio_18_task, "gpio_18_task", ECHO_TASK_STACK_SIZE, NULL, 6, NULL);
     xTaskCreate((void (*)(void *))ota_main, "ota_example", 20480, NULL, 5, NULL);
-//    while(1){
+   while(1){
 
-//       printf("the_firmware_version=\n");//打印版本号
-//        vTaskDelay(1000 / portTICK_PERIOD_MS);
-//   }
+       printf("firmware_version=%s\n", CONFIG_LINKKIT_FIRMWARE_VERSION);//打印版本号
+       vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
 
 }

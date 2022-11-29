@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: station1
+# Project: esp32_aliyun_ota
 # Configurations: 
 # =============================================================================
 # =============================================================================
@@ -14,7 +14,7 @@
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__station1.2eelf_
+rule C_COMPILER__esp32_aliyun_ota.2eelf_
   depfile = $DEP_FILE
   deps = gcc
   command = ccache J:\Espressif\tools\xtensa-esp32-elf\esp-2021r2-patch5-8.4.0\xtensa-esp32-elf\bin\xtensa-esp32-elf-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -24,7 +24,7 @@ rule C_COMPILER__station1.2eelf_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__station1.2eelf_
+rule CXX_EXECUTABLE_LINKER__esp32_aliyun_ota.2eelf_
   command = cmd.exe /C "$PRE_LINK && J:\Espressif\tools\xtensa-esp32-elf\esp-2021r2-patch5-8.4.0\xtensa-esp32-elf\bin\xtensa-esp32-elf-g++.exe $FLAGS $LINK_FLAGS @$RSP_FILE -o $TARGET_FILE  && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   rspfile = $RSP_FILE
@@ -1574,7 +1574,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_main_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = J:\Espressif\tools\cmake\3.23.1\bin\cmake.exe --regenerate-during-build -SJ:\ESP32_project\station1 -BJ:\ESP32_project\station1\build
+  command = J:\Espressif\tools\cmake\3.23.1\bin\cmake.exe --regenerate-during-build -SJ:\Github\ESP32_OTA\esp32_aliyun_ota -BJ:\Github\ESP32_OTA\esp32_aliyun_ota\build
   description = Re-running CMake...
   generator = 1
 

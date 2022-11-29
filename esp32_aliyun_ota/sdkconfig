@@ -285,7 +285,7 @@ CONFIG_EFUSE_MAX_BLK_LEN=192
 #
 # Aliyun linkkit device version
 #
-CONFIG_LINKKIT_FIRMWARE_VERSION="0.0.1"
+CONFIG_LINKKIT_FIRMWARE_VERSION="2.0.0"
 # end of Aliyun linkkit device version
 
 #
