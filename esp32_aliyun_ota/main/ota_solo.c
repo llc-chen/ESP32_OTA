@@ -169,7 +169,7 @@ static int _ota_mqtt_client(void)
         goto do_exit;
     }
 
-    //if (0 != IOT_OTA_ReportVersion(h_ota, "iotx_ver_1.0.0")) {
+   //// //if (0 != IOT_OTA_ReportVersion(h_ota, "iotx_ver_1.0.0")) {
     if (0 != IOT_OTA_ReportVersion(h_ota, CONFIG_LINKKIT_FIRMWARE_VERSION)) {
         rc = -1;
         EXAMPLE_TRACE("report OTA version failed");
